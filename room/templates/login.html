@@ -1,3 +1,4 @@
+<!-- for loading static files  -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,20 +8,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>login</title>
-    <!-- css library -->
 
+  <!-- bootstrap css cdn  -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+  
+  <!-- main css file  -->
   <link rel="stylesheet" href="{% static '/css/main.css' %}">
   <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- for removal of the message tag after 3 sec  -->
+
+  <!-- for removal of the message tag after 2 sec  -->
   <script>
     setTimeout(function() {
       $("#mx").remove();
     }, 2000);
-
   </script>
+
 </head>
 <body>
   
@@ -32,13 +35,17 @@
           <h3 class="text-center text-capitalize text-light">sign in</h3 >
             
           <form action="login"   method="POST">
+            <!-- for security purposes -->
             {% csrf_token %}
+
             <!-- username  -->
             <input type="text" class="form-control" name="username" placeholder="username"><br>
+            
             <!-- password  -->
             <input type="password" class="form-control" name="password" placeholder="password"><br>
+            
+            <!-- messages -->
             <div>
-              <!-- messages -->
               {% if messages %}
               {% for mes in messages %}
               <div class="alert alert-danger text-center" role="alert" id='mx'>
@@ -52,10 +59,14 @@
             <button type="submit" class="btn btn-block btn-success">submit</button>
           
           </form>
+
+          <!-- if user wonts to go to register or home page  -->
           <div class="text-center text-light">
             <p>Don't have an account?
+              <!-- go to register page  -->
               <a href="register">Sign Up</a>
             </p>
+            <!-- go to home page  -->
             <p><a href="/">Home</a></p>
           </div>
         </div>
