@@ -31,12 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # default apps 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # custom apps 
     'login_app',
     'home',
 ]
@@ -56,6 +59,8 @@ ROOT_URLCONF = 'room.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        
+        # template directory path 
         'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -75,6 +80,9 @@ WSGI_APPLICATION = 'room.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# here i used mysql data base 
+# can use any relational databases
+# customize according to need
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -123,12 +131,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+
 STATIC_URL = '/static/'
 
-
+# static files  path 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"static")
 ]
 
-STATIC_ROOT=os.path.join(BASE_DIR,'asset')
 
