@@ -18,6 +18,10 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # searches for urls file in home app 
     path('',include('home.urls')),
+    
+    # searches for urls file in home app 
     path('',include('login_app.urls')),
 ]
